@@ -1,99 +1,81 @@
-package com.kotlin.allalaspace.kotlin;
+package com.kotlin.allalaspace.kotlin
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.ActionMode;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
+import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.Toolbar
+import android.view.ActionMode
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.widget.Button
+import android.widget.Toast
 
 class ContextualMenu : AppCompatActivity() {
 
-//    Button button;
-//    ActionMode actionMode;
-
+    private var button : Button? = null
+    private var   actionMode : ActionMode? = null
+    private var mToolbar: Toolbar? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.contextual_menu)
 
-       /* Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        mToolbar.setTitle("Standalone Toolbar !");
-        mToolbar.setSubtitle("by Smartherd !");
+        mToolbar =  findViewById<Toolbar>(R.id.toolbar)
+        mToolbar!!.setTitle("Standalone Toolbar !")
+        mToolbar!!.setSubtitle("welcome !")
 
-        button = (Button) findViewById(R.id.button);
-        mToolbar.inflateMenu(R.menu.menu_main);
-        mToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+        button = findViewById<Button>(R.id.button) as Button
+        mToolbar!!.inflateMenu(R.menu.menu_main)
+        mToolbar!!.setOnMenuItemClickListener( Toolbar.OnMenuItemClickListener {
 
-
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-
-                String title = (String) item.getTitle(); // here show how to get the title directly.
-
-                Toast.makeText(ContextualMenu.this, title + " Selected !", Toast.LENGTH_SHORT).show();
-
-                switch (item.getItemId()) {
-
-                    case R.id.save:
-                        // Perform the individual Menu Actions.
-                        break;
-
-                    case R.id.mail:
-                        // Perform some Actions.
-                        break;
-
-                    // Similarly you can write CASES for other menu items as well.
+            item : MenuItem? ->
+            when (item!!.itemId) {
+                R.id.save -> {
+                    Toast.makeText(this, item.title, Toast.LENGTH_SHORT).show()
                 }
-                return true;
-            }
-        });
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                actionMode = ContextualMenu.this.startActionMode(new ContextualCallback());
+                R.id.mail -> {
+                    Toast.makeText(this, item.title, Toast.LENGTH_SHORT).show()
+                }
 
             }
-        });
+
+             true
+        })
+
+        button!!.setOnClickListener(View.OnClickListener() {
+            fun onClick(v : View ) {
+                actionMode = this.startActionMode(ContextualCallback())
+            }
+        })
     }
 
-    class ContextualCallback implements ActionMode.Callback{
+    class ContextualCallback : ActionMode.Callback{
 
 
-        @Override
-        public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
 
-            actionMode.getMenuInflater().inflate(R.menu.contextual_menu, menu);
+        override fun onCreateActionMode(actionMode : ActionMode , menu : Menu) : Boolean{
 
-            return true;
+            actionMode.getMenuInflater().inflate(R.menu.contextual_menu, menu)
+            return true
         }
 
-        @Override
-        public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
-
-            actionMode.setTitle("My Action Mode");
-           actionMode.setSubtitle("By Smartherd");
-
-            return false;
+        override fun onPrepareActionMode( actionMode: ActionMode, menu : Menu ) : Boolean {
+           actionMode.setTitle("My Action Mode")
+           actionMode.setSubtitle("By Smartherd")
+            return false
         }
 
-        @Override
-        public boolean onActionItemClicked(ActionMode actionMode, MenuItem item) {
+        override fun onActionItemClicked(actionMode : ActionMode , item : MenuItem ) : Boolean {
 
             // add Functionality to Menu items.
             //switch case statements
-            return false;
+            return false
         }
 
-        @Override
-        public void onDestroyActionMode(ActionMode actionMode) {
+        override fun onDestroyActionMode( actionMode : ActionMode) {
 
             //Action Mode is completed
 
-        }*/
+        }
     }
 }

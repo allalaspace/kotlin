@@ -8,14 +8,15 @@ import android.widget.Toast;
 
 class  StandaloneToolbar : AppCompatActivity() {
 
+    private var mToolbar : Toolbar? = null
 
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_toolbar)
 
-      /* Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        mToolbar.setTitle("Standalone Toolbar !");
-        mToolbar.setSubtitle("by Smartherd !");
+        mToolbar =  findViewById<Toolbar>(R.id.toolbar) as Toolbar
+        mToolbar!!.setTitle("Standalone Toolbar !")
+        mToolbar!!.setSubtitle("by Smartherd !")
         //mToolbar.setNavigationIcon(R.drawable.navigation_back);
 
 
@@ -24,34 +25,46 @@ class  StandaloneToolbar : AppCompatActivity() {
         //if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
           //  mToolbar.setElevation(10f);}
 
-        mToolbar.inflateMenu(R.menu.menu_main);
-        mToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-
-                String title = (String) item.getTitle();
-                Toast.makeText(StandaloneToolbar.this, title + " Selected !", Toast.LENGTH_SHORT).show();
-
-                switch (item.getItemId()) {
-
-                    case R.id.save:
-                        // Perform the individual Menu Actions.
-                        break;
-
-                    case R.id.mail:
-                        // Perform some Actions.
-                        break;
-
+        mToolbar!!.inflateMenu(R.menu.menu_main);
+        mToolbar!!.setOnMenuItemClickListener( Toolbar.OnMenuItemClickListener() {
+            item : MenuItem ->
+            when(item!!.itemId){
+                R.id.save -> {
+                  //Toast.makeText(this, item.title.toString(), Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.mail -> {
+                   // Toast.makeText(this, item.title, Toast.LENGTH_SHORT).show();
+                    true
                 }
 
-                // Similarly you can write CASES for other menu items as well.
-
-
-                return true;
             }
-        });
-
-*/
+true
+//
+//            @Override
+//            public boolean onMenuItemClick(MenuItem item) {
+//
+//                String title = (String) item.getTitle();
+//                Toast.makeText(StandaloneToolbar.this, title + " Selected !", Toast.LENGTH_SHORT).show();
+//
+//                switch (item.getItemId()) {
+//
+//                    case R.id.save:
+//                        // Perform the individual Menu Actions.
+//                        break;
+//
+//                    case R.id.mail:
+//                        // Perform some Actions.
+//                        break;
+//
+//                }
+//
+//                // Similarly you can write CASES for other menu items as well.
+//
+//
+//                return true;
+//            }
+        })
 
         }}
 

@@ -1,11 +1,11 @@
-package com.kotlin.allalaspace.kotlin;
+package com.kotlin.allalaspace.kotlin
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Toast;
+import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.Toolbar
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 
 
 class  ActionBarToolbar : AppCompatActivity() {
@@ -23,48 +23,33 @@ class  ActionBarToolbar : AppCompatActivity() {
     }
 
 
-    /*    @Override
-        public boolean onCreateOptionsMenu(Menu menu) {
-            getMenuInflater().inflate(R.menu.menu_main, menu);
-            return true;
-        }*/
+       override fun onCreateOptionsMenu(menu: Menu) : Boolean {
+//            getMenuInflater().inflate(R.menu.menu_main, menu);
+//            return true;
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu_main, menu)
+        return true
 
-       /* @Override
-        public boolean onOptionsItemSelected(MenuItem item) {
+        }
 
-            String msg = "";
 
-            switch (item.getItemId()) {
+       override fun onOptionsItemSelected(item : MenuItem ) : Boolean{
 
-                case R.id.save:
-                    msg = getString(R.string.save);
-                    break;
+            var msg: String = ""
+            when (item.itemId) {
 
-                case R.id.mail:
-                    msg = getString(R.string.mail);
-                    break;
+                 R.id.save -> msg = getString(R.string.save)
+                 R.id.mail -> msg = getString(R.string.mail)
+                 R.id.camera -> msg = getString(R.string.camera)
+                 R.id.settings -> msg = getString(R.string.settings)
+                 R.id.web_search -> msg = getString(R.string.web_search)
+                 R.id.help -> msg = getString(R.string.help)
 
-                case R.id.camera:
-                    msg = getString(R.string.camera);
-                    break;
-
-                case R.id.settings:
-                    msg = getString(R.string.settings);
-                    break;
-
-                case R.id.web_search:
-                    msg = getString(R.string.web_search);
-                    break;
-
-                case R.id.help:
-                    msg = getString(R.string.help);
-                    break;
             }
 
-            Toast.makeText(this, msg + " clicked !", Toast.LENGTH_SHORT).show();
-
-            return super.onOptionsItemSelected(item);
-        }*/
+            Toast.makeText(this, msg + " clicked !", Toast.LENGTH_SHORT).show()
+            return super.onOptionsItemSelected(item)
+        }
 
     }
 
