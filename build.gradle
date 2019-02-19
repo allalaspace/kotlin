@@ -12,6 +12,10 @@ buildscript {
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+        classpath 'com.squareup.retrofit2:retrofit:2.5.0'
+        classpath 'com.squareup.retrofit2:converter-moshi:2.4.0'
+
+
     }
 }
 
