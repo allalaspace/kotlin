@@ -12,21 +12,17 @@ import android.widget.Toast
 
 class ContextualMenu : AppCompatActivity() {
 
-    private var button : Button? = null
-    private var   actionMode : ActionMode? = null
-    private var mToolbar: Toolbar? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
+        override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.contextual_menu)
 
-        mToolbar =  findViewById<Toolbar>(R.id.toolbar)
-        mToolbar!!.setTitle("Standalone Toolbar !")
-        mToolbar!!.setSubtitle("welcome !")
+        val mToolbar : Toolbar =  findViewById<Toolbar>(R.id.toolbar)
+        mToolbar.setTitle("Standalone Toolbar !")
+        mToolbar.setSubtitle("welcome !")
 
-        button = findViewById<Button>(R.id.button) as Button
-        mToolbar!!.inflateMenu(R.menu.menu_main)
-        mToolbar!!.setOnMenuItemClickListener( Toolbar.OnMenuItemClickListener {
+        val button : Button = findViewById<Button>(R.id.button) as Button
+        mToolbar.inflateMenu(R.menu.menu_main)
+        mToolbar.setOnMenuItemClickListener( Toolbar.OnMenuItemClickListener {
 
             item : MenuItem? ->
             when (item!!.itemId) {
@@ -44,7 +40,7 @@ class ContextualMenu : AppCompatActivity() {
 
         button!!.setOnClickListener(View.OnClickListener() {
             fun onClick(v : View ) {
-                actionMode = this.startActionMode(ContextualCallback())
+               val  actionMode : ActionMode = this.startActionMode(ContextualCallback())
             }
         })
     }

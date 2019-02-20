@@ -1,6 +1,7 @@
 package com.kotlin.allalaspace.kotlin
 
 import android.os.Bundle
+import android.support.v7.app.ActionBar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
@@ -10,16 +11,16 @@ import android.widget.Toast
 
 class  ActionBarToolbar : AppCompatActivity() {
 
-         private var mToolbar: Toolbar? = null
+
         override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_toolbar)
 
-         mToolbar = findViewById<Toolbar>(R.id.toolbar)
+            val mToolbar : Toolbar   = findViewById<Toolbar>(R.id.toolbar)
             setSupportActionBar(mToolbar)
-            val actionBar = supportActionBar
-            actionBar!!.setTitle("Action Bar Toolbar !")
-            actionBar!!.setSubtitle("Welcome !")
+            val actionBar : ActionBar = supportActionBar as ActionBar
+            actionBar.setTitle("Action Bar Toolbar !")
+            actionBar.setSubtitle("Welcome !")
     }
 
 

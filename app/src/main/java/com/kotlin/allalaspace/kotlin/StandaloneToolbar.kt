@@ -8,15 +8,15 @@ import android.widget.Toast;
 
 class  StandaloneToolbar : AppCompatActivity() {
 
-    private var mToolbar : Toolbar? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_toolbar)
 
-        mToolbar =  findViewById<Toolbar>(R.id.toolbar) as Toolbar
-        mToolbar!!.setTitle("Standalone Toolbar !")
-        mToolbar!!.setSubtitle("by Smartherd !")
+        val mToolbar : Toolbar =  findViewById<Toolbar>(R.id.toolbar) as Toolbar
+        mToolbar.setTitle("Standalone Toolbar !")
+        mToolbar.setSubtitle("by Smartherd !")
         //mToolbar.setNavigationIcon(R.drawable.navigation_back);
 
 
@@ -25,7 +25,7 @@ class  StandaloneToolbar : AppCompatActivity() {
         //if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
           //  mToolbar.setElevation(10f);}
 
-        mToolbar!!.inflateMenu(R.menu.menu_main);
+        mToolbar.inflateMenu(R.menu.menu_main);
         mToolbar!!.setOnMenuItemClickListener( Toolbar.OnMenuItemClickListener() {
             item : MenuItem ->
             when(item!!.itemId){
